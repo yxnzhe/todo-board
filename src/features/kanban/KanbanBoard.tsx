@@ -94,15 +94,15 @@ export function KanbanBoard() {
         <div className="flex items-center gap-2">
           <button
             onClick={() => setSearchOpen(true)}
-            className="flex items-center gap-2 px-2.5 py-1 text-[11px] text-text-muted/50 hover:text-text-muted hover:bg-white/[0.03] rounded transition-all duration-200 cursor-pointer tracking-wide"
+            className="flex items-center gap-2 px-2.5 py-1 text-[11px] text-text-muted hover:text-text-secondary hover:bg-bg-hover rounded transition-all duration-200 cursor-pointer tracking-wide"
           >
             <Search size={12} />
             <span>Search</span>
-            <kbd className="px-1.5 py-0 bg-white/[0.03] border border-white/[0.06] rounded text-[8px] text-text-muted/40">/</kbd>
+            <kbd className="px-1.5 py-0 bg-bg-tertiary border border-border-light rounded text-[8px] text-text-muted">/</kbd>
           </button>
           <button
             onClick={() => setNewTaskOpen(true)}
-            className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] text-text-secondary hover:text-text-primary hover:bg-white/[0.05] rounded transition-all duration-200 cursor-pointer tracking-wide uppercase"
+            className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-all duration-200 cursor-pointer tracking-wide uppercase"
           >
             <Plus size={12} />
             <span>Task</span>

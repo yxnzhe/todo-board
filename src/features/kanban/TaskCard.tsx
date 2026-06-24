@@ -20,7 +20,7 @@ export function TaskCard({ task, checklistProgress }: TaskCardProps) {
       ? 'text-danger'
       : isToday(new Date(task.due_date))
         ? 'text-warning'
-        : 'text-text-muted/60'
+        : 'text-text-muted'
     : '';
 
   const progress = checklistProgress && checklistProgress.total > 0
@@ -40,8 +40,8 @@ export function TaskCard({ task, checklistProgress }: TaskCardProps) {
         isDragging ? 'opacity-40 scale-[0.98]' : ''
       } ${
         isSelected
-          ? 'bg-white/[0.06] border-white/15'
-          : 'bg-white/[0.02] border-white/[0.04] hover:bg-white/[0.04] hover:border-white/[0.08]'
+          ? 'bg-bg-active border-border-light'
+          : 'bg-bg-tertiary border-border hover:bg-bg-hover hover:border-border-light'
       }`}
     >
       <div className="flex items-start gap-1.5">
@@ -50,7 +50,7 @@ export function TaskCard({ task, checklistProgress }: TaskCardProps) {
       <div className="flex items-center gap-2 mt-2 flex-wrap">
         {task.project && (
           <span
-            className="text-[10px] tracking-wider uppercase opacity-70"
+            className="text-[10px] tracking-wider uppercase"
             style={{ color: task.project.color }}
           >
             {task.project.name}
@@ -66,7 +66,7 @@ export function TaskCard({ task, checklistProgress }: TaskCardProps) {
             {task.tags.map((tag) => (
               <div
                 key={tag.id}
-                className="w-1.5 h-1.5 rounded-full opacity-60"
+                className="w-1.5 h-1.5 rounded-full"
                 style={{ backgroundColor: tag.color }}
                 title={tag.name}
               />
@@ -75,16 +75,16 @@ export function TaskCard({ task, checklistProgress }: TaskCardProps) {
         )}
         {progress !== null && (
           <div className="flex items-center gap-1.5 ml-auto">
-            <div className="w-10 h-[2px] bg-white/[0.06] rounded-full overflow-hidden">
+            <div className="w-10 h-[2px] bg-bg-primary rounded-full overflow-hidden">
               <div
                 className="h-full rounded-full transition-all duration-500"
                 style={{
                   width: `${progress}%`,
-                  backgroundColor: progress === 100 ? '#27ae60' : 'rgba(192,192,192,0.4)',
+                  backgroundColor: progress === 100 ? '#30b870' : '#909090',
                 }}
               />
             </div>
-            <span className="text-[9px] text-text-muted/50">{progress}%</span>
+            <span className="text-[9px] text-text-muted">{progress}%</span>
           </div>
         )}
       </div>

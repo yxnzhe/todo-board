@@ -50,8 +50,8 @@ export function Sidebar() {
     <aside className="w-[230px] min-w-[230px] h-screen bg-bg-secondary border-r border-border flex flex-col overflow-hidden">
       {/* Logo */}
       <div className="px-4 py-4 flex items-center gap-3 border-b border-border">
-        <img src="/favicon.svg" alt="" className="w-5 h-5 flex-shrink-0 opacity-70" />
-        <span className="text-[11px] font-medium tracking-[0.15em] uppercase text-text-secondary truncate">Phil @ Workboard</span>
+        <img src="/favicon.svg" alt="" className="w-5 h-5 flex-shrink-0" />
+        <span className="text-[11px] font-medium tracking-[0.15em] uppercase text-text-primary truncate">Phil @ Workboard</span>
       </div>
 
       <nav className="flex-1 overflow-y-auto py-3">
@@ -63,57 +63,57 @@ export function Sidebar() {
               onClick={() => setSidebarView(key)}
               className={`w-full flex items-center gap-2.5 px-3 py-1.5 rounded text-[12px] transition-all duration-200 cursor-pointer ${
                 sidebarView === key
-                  ? 'bg-white/5 text-text-primary'
-                  : 'text-text-muted hover:bg-white/[0.03] hover:text-text-secondary'
+                  ? 'bg-bg-active text-text-primary'
+                  : 'text-text-secondary hover:bg-bg-hover hover:text-text-primary'
               }`}
             >
-              <Icon size={14} className="flex-shrink-0 opacity-60" />
+              <Icon size={14} className="flex-shrink-0" />
               <span className="truncate tracking-wide">{label}</span>
             </button>
           ))}
         </div>
 
-        <div className="mx-4 my-3 border-t border-white/[0.04]" />
+        <div className="mx-4 my-3 border-t border-border" />
 
         {/* Dashboard & Notes */}
         <div className="px-2 mb-1">
           <button
             onClick={() => setSidebarView('dashboard')}
             className={`w-full flex items-center gap-2.5 px-3 py-1.5 rounded text-[12px] transition-all duration-200 cursor-pointer ${
-              sidebarView === 'dashboard' ? 'bg-white/5 text-text-primary' : 'text-text-muted hover:bg-white/[0.03] hover:text-text-secondary'
+              sidebarView === 'dashboard' ? 'bg-bg-active text-text-primary' : 'text-text-secondary hover:bg-bg-hover hover:text-text-primary'
             }`}
           >
-            <LayoutDashboard size={14} className="opacity-60" />
+            <LayoutDashboard size={14} />
             <span className="tracking-wide">Dashboard</span>
           </button>
           <button
             onClick={() => setSidebarView('notes')}
             className={`w-full flex items-center gap-2.5 px-3 py-1.5 rounded text-[12px] transition-all duration-200 cursor-pointer ${
-              sidebarView === 'notes' ? 'bg-white/5 text-text-primary' : 'text-text-muted hover:bg-white/[0.03] hover:text-text-secondary'
+              sidebarView === 'notes' ? 'bg-bg-active text-text-primary' : 'text-text-secondary hover:bg-bg-hover hover:text-text-primary'
             }`}
           >
-            <BookOpen size={14} className="opacity-60" />
+            <BookOpen size={14} />
             <span className="tracking-wide">Daily Notes</span>
           </button>
         </div>
 
-        <div className="mx-4 my-3 border-t border-white/[0.04]" />
+        <div className="mx-4 my-3 border-t border-border" />
 
         {/* Projects */}
         <div className="px-2 mb-1">
           <div className="flex items-center justify-between px-3 py-1">
             <button
               onClick={() => setProjectsExpanded(!projectsExpanded)}
-              className="flex items-center gap-1.5 text-[9px] font-medium text-text-muted/60 uppercase tracking-[0.2em] cursor-pointer hover:text-text-muted"
+              className="flex items-center gap-1.5 text-[10px] font-medium text-text-muted uppercase tracking-[0.15em] cursor-pointer hover:text-text-secondary"
             >
-              {projectsExpanded ? <ChevronDown size={9} /> : <ChevronRight size={9} />}
+              {projectsExpanded ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
               Projects
             </button>
             <button
               onClick={() => { setAddingProject(true); setNewName(''); }}
-              className="text-text-muted/40 hover:text-text-muted p-0.5 rounded hover:bg-white/[0.03] transition-all duration-200 cursor-pointer"
+              className="text-text-muted hover:text-text-primary p-0.5 rounded hover:bg-bg-hover transition-all duration-200 cursor-pointer"
             >
-              <Plus size={11} />
+              <Plus size={12} />
             </button>
           </div>
           {projectsExpanded && (
@@ -124,11 +124,11 @@ export function Sidebar() {
                   onClick={() => setSelectedProjectId(project.id)}
                   className={`w-full flex items-center gap-2.5 px-3 py-1.5 rounded text-[12px] transition-all duration-200 cursor-pointer ${
                     sidebarView === `project-${project.id}`
-                      ? 'bg-white/5 text-text-primary'
-                      : 'text-text-muted hover:bg-white/[0.03] hover:text-text-secondary'
+                      ? 'bg-bg-active text-text-primary'
+                      : 'text-text-secondary hover:bg-bg-hover hover:text-text-primary'
                   }`}
                 >
-                  <FolderKanban size={13} style={{ color: project.color }} className="flex-shrink-0 opacity-70" />
+                  <FolderKanban size={13} style={{ color: project.color }} className="flex-shrink-0" />
                   <span className="truncate tracking-wide">{project.name}</span>
                 </button>
               ))}
@@ -140,7 +140,7 @@ export function Sidebar() {
                     onChange={(e) => setNewName(e.target.value)}
                     onBlur={handleAddProject}
                     placeholder="Project name..."
-                    className="w-full bg-transparent border-b border-white/10 px-0 py-1 text-[12px] text-text-primary placeholder:text-text-muted/40 outline-none"
+                    className="w-full bg-transparent border-b border-border-light px-0 py-1 text-[12px] text-text-primary placeholder:text-text-muted outline-none"
                   />
                 </form>
               )}
@@ -153,16 +153,16 @@ export function Sidebar() {
           <div className="flex items-center justify-between px-3 py-1">
             <button
               onClick={() => setContextsExpanded(!contextsExpanded)}
-              className="flex items-center gap-1.5 text-[9px] font-medium text-text-muted/60 uppercase tracking-[0.2em] cursor-pointer hover:text-text-muted"
+              className="flex items-center gap-1.5 text-[10px] font-medium text-text-muted uppercase tracking-[0.15em] cursor-pointer hover:text-text-secondary"
             >
-              {contextsExpanded ? <ChevronDown size={9} /> : <ChevronRight size={9} />}
+              {contextsExpanded ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
               Contexts
             </button>
             <button
               onClick={() => { setAddingContext(true); setNewName(''); }}
-              className="text-text-muted/40 hover:text-text-muted p-0.5 rounded hover:bg-white/[0.03] transition-all duration-200 cursor-pointer"
+              className="text-text-muted hover:text-text-primary p-0.5 rounded hover:bg-bg-hover transition-all duration-200 cursor-pointer"
             >
-              <Plus size={11} />
+              <Plus size={12} />
             </button>
           </div>
           {contextsExpanded && (
@@ -173,11 +173,11 @@ export function Sidebar() {
                   onClick={() => setSelectedContextId(context.id)}
                   className={`w-full flex items-center gap-2.5 px-3 py-1.5 rounded text-[12px] transition-all duration-200 cursor-pointer ${
                     sidebarView === `context-${context.id}`
-                      ? 'bg-white/5 text-text-primary'
-                      : 'text-text-muted hover:bg-white/[0.03] hover:text-text-secondary'
+                      ? 'bg-bg-active text-text-primary'
+                      : 'text-text-secondary hover:bg-bg-hover hover:text-text-primary'
                   }`}
                 >
-                  <Hash size={13} style={{ color: context.color }} className="flex-shrink-0 opacity-70" />
+                  <Hash size={13} style={{ color: context.color }} className="flex-shrink-0" />
                   <span className="truncate tracking-wide">{context.name}</span>
                 </button>
               ))}
@@ -189,7 +189,7 @@ export function Sidebar() {
                     onChange={(e) => setNewName(e.target.value)}
                     onBlur={handleAddContext}
                     placeholder="Context name..."
-                    className="w-full bg-transparent border-b border-white/10 px-0 py-1 text-[12px] text-text-primary placeholder:text-text-muted/40 outline-none"
+                    className="w-full bg-transparent border-b border-border-light px-0 py-1 text-[12px] text-text-primary placeholder:text-text-muted outline-none"
                   />
                 </form>
               )}
@@ -200,10 +200,10 @@ export function Sidebar() {
 
       {/* Keyboard hints */}
       <div className="px-4 py-3 border-t border-border">
-        <div className="flex items-center gap-3 text-[9px] text-text-muted/40 tracking-wider uppercase">
-          <kbd className="px-1.5 py-0.5 bg-white/[0.03] border border-white/[0.06] rounded text-[8px]">N</kbd>
+        <div className="flex items-center gap-3 text-[9px] text-text-muted tracking-wider uppercase">
+          <kbd className="px-1.5 py-0.5 bg-bg-tertiary border border-border-light rounded text-[8px]">N</kbd>
           <span>New task</span>
-          <kbd className="px-1.5 py-0.5 bg-white/[0.03] border border-white/[0.06] rounded text-[8px] ml-auto">/</kbd>
+          <kbd className="px-1.5 py-0.5 bg-bg-tertiary border border-border-light rounded text-[8px] ml-auto">/</kbd>
           <span>Search</span>
         </div>
       </div>

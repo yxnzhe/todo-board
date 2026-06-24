@@ -2,30 +2,30 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #070707;
-  --color-bg-secondary: #0e0e0e;
-  --color-bg-tertiary: #161616;
-  --color-bg-hover: #1e1e1e;
-  --color-bg-active: #252525;
-  --color-border: #1f1f1f;
-  --color-border-light: #2a2a2a;
-  --color-text-primary: #ededed;
-  --color-text-secondary: #a1a1a1;
-  --color-text-muted: #666666;
-  --color-accent: #c4c4c4;
-  --color-accent-hover: #e0e0e0;
+  --color-bg-primary: #101010;
+  --color-bg-secondary: #171717;
+  --color-bg-tertiary: #1e1e1e;
+  --color-bg-hover: #282828;
+  --color-bg-active: #303030;
+  --color-border: #2a2a2a;
+  --color-border-light: #383838;
+  --color-text-primary: #f0f0f0;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #787878;
+  --color-accent: #d0d0d0;
+  --color-accent-hover: #e8e8e8;
   --color-silver: #c0c0c0;
-  --color-chrome: #8a8a8a;
-  --color-danger: #c0392b;
-  --color-success: #27ae60;
-  --color-warning: #d4a017;
+  --color-chrome: #909090;
+  --color-danger: #d94040;
+  --color-success: #30b870;
+  --color-warning: #d4a420;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
   --font-mono: 'SF Mono', 'Menlo', monospace;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #1f1f1f transparent;
+  scrollbar-color: #333 transparent;
 }
 
 body {
@@ -41,7 +41,7 @@ body {
 }
 
 ::selection {
-  background: rgba(192, 192, 192, 0.3);
+  background: rgba(192, 192, 192, 0.35);
   color: white;
 }
 
@@ -55,7 +55,6 @@ input, textarea, select {
   outline-offset: -1px;
 }
 
-/* Premium scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
@@ -64,9 +63,9 @@ input, textarea, select {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #222;
+  background: #333;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #333;
+  background: #444;
 }

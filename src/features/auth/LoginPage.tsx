@@ -32,7 +32,7 @@ export function LoginPage() {
         <div className="mb-10 text-center">
           <img src="/favicon.svg" alt="" className="w-12 h-12 mx-auto mb-4 opacity-80" />
           <h1 className="text-xl font-light tracking-[0.2em] uppercase text-text-primary">Phil @ Workboard</h1>
-          <div className="w-12 h-px bg-white/10 mx-auto mt-3" />
+          <div className="w-12 h-px bg-border-light mx-auto mt-3" />
         </div>
 
         <div className="bg-bg-secondary border border-border rounded p-6">
