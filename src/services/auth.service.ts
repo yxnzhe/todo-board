@@ -1,20 +1,6 @@
 import { supabase } from '@/lib/supabase';
 
 export const authService = {
-  async signInWithGoogle() {
-    return supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: { redirectTo: window.location.origin },
-    });
-  },
-
-  async signInWithGitHub() {
-    return supabase.auth.signInWithOAuth({
-      provider: 'github',
-      options: { redirectTo: window.location.origin },
-    });
-  },
-
   async signInWithEmail(email: string, password: string) {
     return supabase.auth.signInWithPassword({ email, password });
   },
