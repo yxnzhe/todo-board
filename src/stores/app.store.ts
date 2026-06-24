@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import type { SidebarView } from '@/lib/constants';
+import type { TaskStatus } from '@/types';
 
 interface AppState {
   sidebarView: SidebarView | string;
@@ -8,6 +9,7 @@ interface AppState {
   selectedContextId: string | null;
   searchOpen: boolean;
   newTaskOpen: boolean;
+  newTaskDefaultStatus: TaskStatus;
   sidebarCollapsed: boolean;
   detailPanelOpen: boolean;
   setSidebarView: (view: SidebarView | string) => void;
@@ -16,6 +18,7 @@ interface AppState {
   setSelectedContextId: (id: string | null) => void;
   setSearchOpen: (open: boolean) => void;
   setNewTaskOpen: (open: boolean) => void;
+  openNewTaskWithStatus: (status: TaskStatus) => void;
   setSidebarCollapsed: (collapsed: boolean) => void;
   setDetailPanelOpen: (open: boolean) => void;
 }
@@ -27,6 +30,7 @@ export const useAppStore = create<AppState>((set) => ({
   selectedContextId: null,
   searchOpen: false,
   newTaskOpen: false,
+  newTaskDefaultStatus: 'todo',
   sidebarCollapsed: false,
   detailPanelOpen: false,
   setSidebarView: (view) => set({ sidebarView: view, selectedProjectId: null, selectedContextId: null }),
@@ -34,7 +38,8 @@ export const useAppStore = create<AppState>((set) => ({
   setSelectedProjectId: (id) => set({ selectedProjectId: id, sidebarView: `project-${id}` }),
   setSelectedContextId: (id) => set({ selectedContextId: id, sidebarView: `context-${id}` }),
   setSearchOpen: (open) => set({ searchOpen: open }),
-  setNewTaskOpen: (open) => set({ newTaskOpen: open }),
+  setNewTaskOpen: (open) => set({ newTaskOpen: open, ...(!open ? { newTaskDefaultStatus: 'todo' as TaskStatus } : {}) }),
+  openNewTaskWithStatus: (status) => set({ newTaskOpen: true, newTaskDefaultStatus: status }),
   setSidebarCollapsed: (collapsed) => set({ sidebarCollapsed: collapsed }),
   setDetailPanelOpen: (open) => set({ detailPanelOpen: open }),
 }));

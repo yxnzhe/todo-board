@@ -3,7 +3,6 @@ export const TASK_STATUSES = [
   { value: 'todo', label: 'To Do', color: '#3b82f6' },
   { value: 'in_progress', label: 'In Progress', color: '#f59e0b' },
   { value: 'waiting', label: 'Waiting', color: '#8b5cf6' },
-  { value: 'review', label: 'Review', color: '#ec4899' },
   { value: 'done', label: 'Done', color: '#10b981' },
 ] as const;
 
@@ -19,7 +18,6 @@ export const KANBAN_COLUMNS: Array<{ status: import('@/types').TaskStatus; label
   { status: 'todo', label: 'To Do' },
   { status: 'in_progress', label: 'In Progress' },
   { status: 'waiting', label: 'Waiting' },
-  { status: 'review', label: 'Review' },
   { status: 'done', label: 'Done' },
 ];
 

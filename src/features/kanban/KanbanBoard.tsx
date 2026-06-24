@@ -40,7 +40,7 @@ export function KanbanBoard() {
   const { data: projects = [] } = useProjects();
   const { data: contexts = [] } = useContexts();
   const updateTask = useUpdateTask();
-  const { sidebarView, selectedProjectId, selectedContextId, setNewTaskOpen, setSearchOpen } = useAppStore();
+  const { sidebarView, selectedProjectId, selectedContextId, setSearchOpen, openNewTaskWithStatus } = useAppStore();
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 5 } }));
 
   const filteredTasks = useMemo(
@@ -50,7 +50,7 @@ export function KanbanBoard() {
 
   const tasksByStatus = useMemo(() => {
     const map: Record<TaskStatus, Task[]> = {
-      backlog: [], todo: [], in_progress: [], waiting: [], review: [], done: [],
+      backlog: [], todo: [], in_progress: [], waiting: [], done: [],
     };
     filteredTasks.forEach((t) => {
       if (map[t.status]) map[t.status].push(t);
@@ -101,7 +101,7 @@ export function KanbanBoard() {
             <kbd className="px-1.5 py-0 bg-bg-tertiary border border-border-light rounded text-[8px] text-text-muted">/</kbd>
           </button>
           <button
-            onClick={() => setNewTaskOpen(true)}
+            onClick={() => openNewTaskWithStatus('todo')}
             className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-all duration-200 cursor-pointer tracking-wide uppercase"
           >
             <Plus size={12} />
@@ -115,7 +115,7 @@ export function KanbanBoard() {
         <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
           <div className="flex gap-1 p-4 h-full min-w-max">
             {KANBAN_COLUMNS.map(({ status }) => (
-              <KanbanColumn key={status} status={status} tasks={tasksByStatus[status]} />
+              <KanbanColumn key={status} status={status} tasks={tasksByStatus[status]} onAddTask={openNewTaskWithStatus} />
             ))}
           </div>
         </DndContext>

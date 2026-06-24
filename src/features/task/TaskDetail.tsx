@@ -8,8 +8,6 @@ import { TASK_STATUSES, TASK_PRIORITIES } from '@/lib/constants';
 import { TaskChecklist } from './TaskChecklist';
 import { TaskComments } from './TaskComments';
 import { TaskActivity } from './TaskActivity';
-import { TaskDecisions } from './TaskDecisions';
-import { TaskWorklogs } from './TaskWorklogs';
 import { TaskAttachments } from './TaskAttachments';
 import { activitiesService } from '@/services/activities.service';
 import type { TaskStatus, TaskPriority } from '@/types';
@@ -181,10 +179,6 @@ export function TaskDetail() {
         <TaskChecklist taskId={task.id} />
         <div className="border-t border-border" />
         <TaskComments taskId={task.id} />
-        <div className="border-t border-border" />
-        <TaskDecisions taskId={task.id} />
-        <div className="border-t border-border" />
-        <TaskWorklogs taskId={task.id} />
         <div className="border-t border-border" />
         <TaskAttachments taskId={task.id} />
         <div className="border-t border-border" />

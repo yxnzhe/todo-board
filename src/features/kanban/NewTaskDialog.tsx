@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Dialog } from '@/components/ui/Dialog';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
@@ -16,9 +16,10 @@ interface NewTaskDialogProps {
 }
 
 export function NewTaskDialog({ open, onClose }: NewTaskDialogProps) {
+  const { selectedProjectId, newTaskDefaultStatus } = useAppStore();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [status, setStatus] = useState<TaskStatus>('todo');
+  const [status, setStatus] = useState<TaskStatus>(newTaskDefaultStatus);
   const [priority, setPriority] = useState<TaskPriority>('medium');
   const [projectId, setProjectId] = useState('');
   const [contextId, setContextId] = useState('');
@@ -26,7 +27,8 @@ export function NewTaskDialog({ open, onClose }: NewTaskDialogProps) {
   const createTask = useCreateTask();
   const { data: projects = [] } = useProjects();
   const { data: contexts = [] } = useContexts();
-  const { selectedProjectId } = useAppStore();
+
+  useEffect(() => { if (open) setStatus(newTaskDefaultStatus); }, [open, newTaskDefaultStatus]);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
