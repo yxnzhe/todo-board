@@ -1,28 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #0f1117;
-  --color-bg-secondary: #161922;
-  --color-bg-tertiary: #1c1f2e;
-  --color-bg-hover: #252836;
-  --color-bg-active: #2a2d3e;
-  --color-border: #2a2d3e;
-  --color-border-light: #353849;
-  --color-text-primary: #e2e4e9;
-  --color-text-secondary: #9ba1b0;
-  --color-text-muted: #6b7280;
-  --color-accent: #3b82f6;
-  --color-accent-hover: #2563eb;
-  --color-danger: #ef4444;
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --color-bg-primary: #070707;
+  --color-bg-secondary: #0e0e0e;
+  --color-bg-tertiary: #161616;
+  --color-bg-hover: #1e1e1e;
+  --color-bg-active: #252525;
+  --color-border: #1f1f1f;
+  --color-border-light: #2a2a2a;
+  --color-text-primary: #ededed;
+  --color-text-secondary: #a1a1a1;
+  --color-text-muted: #666666;
+  --color-accent: #c4c4c4;
+  --color-accent-hover: #e0e0e0;
+  --color-silver: #c0c0c0;
+  --color-chrome: #8a8a8a;
+  --color-danger: #c0392b;
+  --color-success: #27ae60;
+  --color-warning: #d4a017;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  --font-mono: 'SF Mono', 'Menlo', monospace;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-border) transparent;
+  scrollbar-color: #1f1f1f transparent;
 }
 
 body {
@@ -31,12 +34,14 @@ body {
   color: var(--color-text-primary);
   font-family: var(--font-sans);
   font-size: 13px;
-  line-height: 1.5;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.01em;
 }
 
 ::selection {
-  background: var(--color-accent);
+  background: rgba(192, 192, 192, 0.3);
   color: white;
 }
 
@@ -46,6 +51,22 @@ input, textarea, select {
 }
 
 :focus-visible {
-  outline: 1px solid var(--color-accent);
+  outline: 1px solid rgba(192, 192, 192, 0.4);
   outline-offset: -1px;
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
 }

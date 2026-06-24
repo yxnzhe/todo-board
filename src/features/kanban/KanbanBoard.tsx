@@ -89,22 +89,22 @@ export function KanbanBoard() {
   return (
     <div className="flex flex-col h-full">
       {/* Toolbar */}
-      <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-bg-secondary">
-        <h2 className="text-sm font-semibold text-text-primary">{viewLabel}</h2>
-        <div className="flex items-center gap-1.5">
+      <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-bg-secondary">
+        <h2 className="text-[12px] font-medium tracking-[0.15em] uppercase text-text-secondary">{viewLabel}</h2>
+        <div className="flex items-center gap-2">
           <button
             onClick={() => setSearchOpen(true)}
-            className="flex items-center gap-1.5 px-2 py-1 text-xs text-text-muted hover:text-text-secondary hover:bg-bg-hover rounded transition-colors cursor-pointer"
+            className="flex items-center gap-2 px-2.5 py-1 text-[11px] text-text-muted/50 hover:text-text-muted hover:bg-white/[0.03] rounded transition-all duration-200 cursor-pointer tracking-wide"
           >
-            <Search size={13} />
+            <Search size={12} />
             <span>Search</span>
-            <kbd className="px-1 py-0 bg-bg-tertiary border border-border rounded text-[9px] text-text-muted">/</kbd>
+            <kbd className="px-1.5 py-0 bg-white/[0.03] border border-white/[0.06] rounded text-[8px] text-text-muted/40">/</kbd>
           </button>
           <button
             onClick={() => setNewTaskOpen(true)}
-            className="flex items-center gap-1 px-2 py-1 text-xs text-accent hover:bg-accent/10 rounded transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] text-text-secondary hover:text-text-primary hover:bg-white/[0.05] rounded transition-all duration-200 cursor-pointer tracking-wide uppercase"
           >
-            <Plus size={13} />
+            <Plus size={12} />
             <span>Task</span>
           </button>
         </div>
@@ -113,7 +113,7 @@ export function KanbanBoard() {
       {/* Kanban */}
       <div className="flex-1 overflow-x-auto overflow-y-hidden">
         <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
-          <div className="flex gap-2 p-3 h-full min-w-max">
+          <div className="flex gap-1 p-4 h-full min-w-max">
             {KANBAN_COLUMNS.map(({ status }) => (
               <KanbanColumn key={status} status={status} tasks={tasksByStatus[status]} />
             ))}

@@ -27,9 +27,7 @@ function AppContent() {
     return (
       <div className="min-h-screen bg-bg-primary flex items-center justify-center">
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 bg-accent rounded flex items-center justify-center">
-            <span className="text-white text-[10px] font-bold">W</span>
-          </div>
+          <img src="/favicon.svg" alt="" className="w-5 h-5" />
           <span className="text-sm text-text-muted">Loading...</span>
         </div>
       </div>
