@@ -1,4 +1,4 @@
-export type TaskStatus = 'backlog' | 'todo' | 'in_progress' | 'waiting' | 'done';
+export type TaskStatus = 'todo' | 'in_progress' | 'waiting' | 'done';
 export type TaskPriority = 'critical' | 'high' | 'medium' | 'low';
 
 export interface User {

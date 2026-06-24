@@ -24,7 +24,7 @@ interface AppState {
 }
 
 export const useAppStore = create<AppState>((set) => ({
-  sidebarView: 'inbox',
+  sidebarView: 'overview',
   selectedTaskId: null,
   selectedProjectId: null,
   selectedContextId: null,

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import {
-  Inbox, CalendarCheck, CalendarDays, Calendar, Clock, Archive, CheckCircle2,
+  LayoutGrid, CalendarCheck, CalendarDays, Calendar, Clock, CheckCircle2,
   LayoutDashboard, BookOpen, Plus, FolderKanban, Hash, ChevronDown, ChevronRight,
 } from 'lucide-react';
 import { useAppStore } from '@/stores/app.store';
@@ -11,12 +11,11 @@ import { useCreateContext } from '@/hooks/useContexts';
 import { DEFAULT_PROJECT_COLORS } from '@/lib/constants';
 
 const NAV_ITEMS = [
-  { key: 'inbox', label: 'Inbox', icon: Inbox },
+  { key: 'overview', label: 'Overview', icon: LayoutGrid },
   { key: 'today', label: 'Today', icon: CalendarCheck },
   { key: 'upcoming', label: 'Upcoming', icon: CalendarDays },
   { key: 'this-week', label: 'This Week', icon: Calendar },
   { key: 'waiting', label: 'Waiting', icon: Clock },
-  { key: 'backlog', label: 'Backlog', icon: Archive },
   { key: 'completed', label: 'Completed', icon: CheckCircle2 },
 ] as const;
 

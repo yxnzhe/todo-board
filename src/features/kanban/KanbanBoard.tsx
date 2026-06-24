@@ -16,7 +16,7 @@ function filterTasks(tasks: Task[], view: string, projectId: string | null, cont
   if (contextId) return tasks.filter((t) => t.context_id === contextId);
 
   switch (view) {
-    case 'inbox':
+    case 'overview':
       return tasks.filter((t) => t.status !== 'done');
     case 'today':
       return tasks.filter((t) => t.due_date && isToday(parseISO(t.due_date)));
@@ -26,8 +26,6 @@ function filterTasks(tasks: Task[], view: string, projectId: string | null, cont
       return tasks.filter((t) => t.due_date && isThisWeek(parseISO(t.due_date)));
     case 'waiting':
       return tasks.filter((t) => t.status === 'waiting');
-    case 'backlog':
-      return tasks.filter((t) => t.status === 'backlog');
     case 'completed':
       return tasks.filter((t) => t.status === 'done');
     default:
@@ -50,7 +48,7 @@ export function KanbanBoard() {
 
   const tasksByStatus = useMemo(() => {
     const map: Record<TaskStatus, Task[]> = {
-      backlog: [], todo: [], in_progress: [], waiting: [], done: [],
+      todo: [], in_progress: [], waiting: [], done: [],
     };
     filteredTasks.forEach((t) => {
       if (map[t.status]) map[t.status].push(t);
@@ -80,8 +78,8 @@ export function KanbanBoard() {
       return c?.name || 'Context';
     }
     const labels: Record<string, string> = {
-      inbox: 'Inbox', today: 'Today', upcoming: 'Upcoming', 'this-week': 'This Week',
-      waiting: 'Waiting', backlog: 'Backlog', completed: 'Completed',
+      overview: 'Overview', today: 'Today', upcoming: 'Upcoming', 'this-week': 'This Week',
+      waiting: 'Waiting', completed: 'Completed',
     };
     return labels[sidebarView] || 'Tasks';
   }, [sidebarView, selectedProjectId, selectedContextId, projects, contexts]);

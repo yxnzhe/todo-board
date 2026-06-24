@@ -1,5 +1,4 @@
 export const TASK_STATUSES = [
-  { value: 'backlog', label: 'Backlog', color: '#6b7280' },
   { value: 'todo', label: 'To Do', color: '#3b82f6' },
   { value: 'in_progress', label: 'In Progress', color: '#f59e0b' },
   { value: 'waiting', label: 'Waiting', color: '#8b5cf6' },
@@ -14,7 +13,6 @@ export const TASK_PRIORITIES = [
 ] as const;
 
 export const KANBAN_COLUMNS: Array<{ status: import('@/types').TaskStatus; label: string }> = [
-  { status: 'backlog', label: 'Backlog' },
   { status: 'todo', label: 'To Do' },
   { status: 'in_progress', label: 'In Progress' },
   { status: 'waiting', label: 'Waiting' },
@@ -26,12 +24,11 @@ export const DEFAULT_PROJECT_COLORS = [
 ];
 
 export const SIDEBAR_VIEWS = [
-  { key: 'inbox', label: 'Inbox', icon: 'Inbox' },
+  { key: 'overview', label: 'Overview', icon: 'LayoutGrid' },
   { key: 'today', label: 'Today', icon: 'CalendarCheck' },
   { key: 'upcoming', label: 'Upcoming', icon: 'CalendarDays' },
   { key: 'this-week', label: 'This Week', icon: 'Calendar' },
   { key: 'waiting', label: 'Waiting', icon: 'Clock' },
-  { key: 'backlog', label: 'Backlog', icon: 'Archive' },
   { key: 'completed', label: 'Completed', icon: 'CheckCircle2' },
 ] as const;
 
